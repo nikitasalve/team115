@@ -3,6 +3,7 @@ class nik{
 	
 	{
 		System.out.println("JAVA CODE");
+		System.out.println("hello");
 	}
 }
 
