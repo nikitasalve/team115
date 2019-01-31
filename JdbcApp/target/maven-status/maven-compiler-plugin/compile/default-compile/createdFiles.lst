@@ -1,0 +1,5 @@
+com\hexaware\ftp\persistence\DeptDAO.class
+com\hexaware\ftp\persistence\DbConnection.class
+com\hexaware\ftp\persistence\Main.class
+com\hexaware\ftp\persistence\DeptMapper.class
+com\hexaware\ftp\model\Dept.class
