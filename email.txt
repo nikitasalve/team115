@@ -1,16 +1,16 @@
-Leave management System
-
-TODO     						Doing				 	Done
-
-1) approved and deny algorithm
-
-
-doing
-1) Search the Employee Details Algorithm
-2)Insert update delete operation in mapper classes 
-Important 3)  apply leave algorithm----meghana's work pending
-
-done
-1) Database is created for Employee and Leave Details
-2) List of  Employees  are executed  on the java
-3) created Setters and Getters for Employee tables and Leave Details
+-- create the LEAVE_DETAILS table
+CREATE TABLE LEAVE_DETAILS
+ (
+   LEA_LEAVE_ID INT AUTO_INCREMENT,
+   LEA_NO_OF_DAYS INT,
+   LEA_START_DATE DATE,
+   LEA_END_DATE DATE,
+   LEA_LEAVE_TYPE ENUM('ML','PL','EL'),
+   LEA_REASON VARCHAR(30),
+   LEA_APPLIED_ON DATE,
+   LEA_LEAVE_STATUS ENUM('PENDING','APPROVED','REJECTED'),
+   LEA_MGR_COMMENTS VARCHAR(30),
+   LEA_EMP_ID INT,
+   CONSTRAINT PK_LEAVE_DETAIL_LEAVE_ID PRIMARY KEY(LEA_LEAVE_ID),
+   CONSTRAINT FK_LEAVE_EMP_ID FOREIGN KEY(LEA_EMP_ID) REFERENCES EMPLOYEE(EMP_ID)
+);
