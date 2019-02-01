@@ -1,0 +1,16 @@
+Leave management System
+
+TODO     						Doing				 	Done
+
+1) approved and deny algorithm
+
+
+doing
+1) Search the Employee Details Algorithm
+2)Insert update delete operation in mapper classes 
+Important 3)  apply leave algorithm----meghana's work pending
+
+done
+1) Database is created for Employee and Leave Details
+2) List of  Employees  are executed  on the java
+3) created Setters and Getters for Employee tables and Leave Details
