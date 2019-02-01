@@ -1,4 +1,6 @@
 A:\hexaware\JDBI\JdbcApp\src\main\java\com\hexaware\ftp\persistence\DbConnection.java
+A:\hexaware\JDBI\JdbcApp\src\main\java\com\hexaware\ftp\util\CliMainDeleteDept.java
+A:\hexaware\JDBI\JdbcApp\src\main\java\com\hexaware\ftp\util\CliMainInsertDept.java
 A:\hexaware\JDBI\JdbcApp\src\main\java\com\hexaware\ftp\persistence\Main.java
 A:\hexaware\JDBI\JdbcApp\src\main\java\com\hexaware\ftp\util\CliMain.java
 A:\hexaware\JDBI\JdbcApp\src\main\java\com\hexaware\ftp\persistence\DeptMapper.java

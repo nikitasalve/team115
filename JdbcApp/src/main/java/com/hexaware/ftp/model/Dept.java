@@ -49,4 +49,13 @@ public static Dept[] listAll() {
     List<Dept> es =dao().list();
     return es.toArray(new Dept[es.size()]);
 }
+
+public static void insertDept(int deptno, String dname, String loc){
+    dao().insertDept(deptno, dname, loc);
+}
+
+public static void deleteDept(int deptno){
+    dao().deleteDept(deptno);
+}
+
 } 

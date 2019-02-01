@@ -1,6 +1,8 @@
 com\hexaware\ftp\persistence\DeptDAO.class
 com\hexaware\ftp\persistence\DbConnection.class
 com\hexaware\ftp\persistence\Main.class
-com\hexaware\ftp\persistence\DeptMapper.class
 com\hexaware\ftp\util\CliMain.class
+com\hexaware\ftp\util\CliMainInsertDept.class
+com\hexaware\ftp\persistence\DeptMapper.class
+com\hexaware\ftp\util\CliMainDeleteDept.class
 com\hexaware\ftp\model\Dept.class
