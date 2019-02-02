@@ -1,8 +1,0 @@
-hii
-<<<<<<< HEAD
-tuiggjnuigjm i am nikita trying merge conflicts validations of the employ finished by nikita employ  validations finished successfully by nikita hii how are you i'm nikita
-tuiggjnuigjm its time 7 almost validations of the employ finished by nikita employ  validations finished successfully by nikita hii how are you i'm nikita
-=======
-tuiggjnuigjm new details are added successfully employ  validations finished successfully by nikita hii how are you i'm nikita
->>>>>>> a992c0fd9b79f7e372b34c289873f522ad807d58
-gjfjjgjfg

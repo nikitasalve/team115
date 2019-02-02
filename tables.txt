@@ -1,0 +1,36 @@
+use FTP115;
+drop table if exists leave_details;
+DROP table if exists EMPLOYEE;
+create table EMPLOYEE(
+EMP_ID int (20),
+EMP_FULL_NAME varchar(20),
+EMP_EMAIL varchar(20),
+EMP_MOBILE_NO varchar(20),
+EMP_DOJ DATE ,
+EMP_DEPT varchar(10),
+EMP_MGR_ID int(20),
+EMP_LEA_BAL int(20),
+constraint PK_EMP_ID primary key(EMP_ID),
+constraint FK_MGR_OF_EMP foreign key(EMP_MGR_ID) references EMPLOYEE(EMP_ID)
+);
+
+insert into EMPLOYEE values(3000,"anfja Wafs","Wsafaf@gmail","+91925254525","2019-12-21","DEVELOP",NULL,20);
+insert into EMPLOYEE values(1000,"OMKAR WAGHE","WAGHE@gmail","+9190254525","2019-12-20","DEVELOP",3000,20);
+insert into EMPLOYEE values(2000,"OMKAR WAGHE","WAGHE@gmail","+9190254525","2019-12-15","DELOP",3000,20);
+
+create table leave_details(
+LEA_LEAVE_ID int(20),
+LEA_NO_OF_DAYS int(10),
+LEA_START_DATE date,
+LEA_END_DATE date,
+LEA_LEAVE_TYPE ENUM('EL','PL','ML'),
+LEA_REASON varchar(30),
+LEA_APPLIED_ON Date,
+LEA_LEAVE_STATUS Enum('approved','denied'),
+LEA_EMP_ID int(20),
+LEA_MGR_COMMENTS varchar(30),
+constraint PK_LEAVE_ID primary key(LEA_LEAVE_ID),
+constraint FK_OF_EMP foreign key(LEA_EMP_ID) references EMPLOYEE(EMP_ID)
+);
+
+insert into leave_details values(1,20,"2019-10-10","2019-10-14","EL","SICK","2019-09-10",NULL,1000,NULL);
