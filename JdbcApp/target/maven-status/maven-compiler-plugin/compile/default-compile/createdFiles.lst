@@ -1,0 +1,11 @@
+<<<<<<< HEAD
+=======
+com\hexaware\ftp\persistence\DeptDAO.class
+com\hexaware\ftp\persistence\DbConnection.class
+com\hexaware\ftp\persistence\Main.class
+com\hexaware\ftp\util\CliMain.class
+com\hexaware\ftp\util\CliMainInsertDept.class
+com\hexaware\ftp\persistence\DeptMapper.class
+com\hexaware\ftp\util\CliMainDeleteDept.class
+com\hexaware\ftp\model\Dept.class
+>>>>>>> a719228e53157be8d29297ad0d2704201e055f70
