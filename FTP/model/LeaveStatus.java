@@ -13,7 +13,7 @@ public enum LeaveStatus {
     /**
     * leaveType to store PL.
     */
-  DENIED,
+  REJECTED,
     /**
     * leaveType to store ML.
     */

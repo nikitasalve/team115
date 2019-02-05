@@ -1,6 +1,13 @@
 package com.hexaware.FTP115.model;
+import com.hexaware.FTP115.persistence.DbConnection;
+import com.hexaware.FTP115.persistence.EmployeeDAO;
+import com.hexaware.FTP115.persistence.LeaveDetailsDAO;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
+
 /**
  * Leave_details class to store employee leave details.
  * @author hexaware.
@@ -206,6 +213,8 @@ public final boolean equals(final Object obj) {
   public final void setLeaMngCmts(final String argLeaMngCmts) {
     this.leaMngCmts = argLeaMngCmts;
   }
+
+
   /**
    * Gets the EmployeeId.
    * @return this Employee's ID.
@@ -222,8 +231,137 @@ public final boolean equals(final Object obj) {
     this.leaEmpId = argLeaEmpId;
   }
 
-  
+  private static LeaveDetailsDAO dao() {
+    DbConnection db = new DbConnection();
+    return db.getConnect().onDemand(LeaveDetailsDAO.class);
+  }
 
+  private static EmployeeDAO edao() {
+    DbConnection db = new DbConnection();
+    return db.getConnect().onDemand(EmployeeDAO.class);
+  }
+  /**
+   * list all LeaveHistory details.
+   * @param empId id to get Leave details.
+   * @return all Leave' details
+   */
+  public static LeaveDetails[] listAll(final int empId) {
+
+    List<LeaveDetails> es = dao().leaveHistory(empId);
+    return es.toArray(new LeaveDetails[es.size()]);
+  }
+
+   /**
+   * list all LeaveHistory details.
+   * @param empId id to get Leave details.
+   * @return all Leave' details
+   */
+  public static LeaveDetails[] listPending(final int empId) {
+    List<LeaveDetails> es = dao().pending(empId);
+    return es.toArray(new LeaveDetails[es.size()]);
+  }
+
+  /**
+   * @param argLeavId to set leave id.
+   * @param argEmpMgrId to set ManagerID.
+   * @param argStatus to set Approve or Deny.
+   * @param argMgrComment to set Manager Response.
+   * @return leave applied statement.
+   */
+  public static String approveDeny(final int argLeavId,
+      final int argEmpMgrId,
+      final String argStatus,
+      final String argMgrComment) {
+    String res = "";
+    LeaveDetails ld = dao().listById(argLeavId);
+    int noDays = ld.getLeaNoOfDays();
+    int empId = ld.getleaEmpId();
+    Employee ed = edao().find(empId);
+    int leavAvail = ed.getEmpLeaveBal();
+    leavAvail = leavAvail + noDays;
+    int mgrId = ed.getMgrId();
+    String leavStatus = "";
+    if (mgrId != argEmpMgrId) {
+      res = "You are unauthorized to approve the Leave";
+    } else {
+      if (argStatus.equals("YES")) {
+        res = "Leave Approved Successfully...";
+        leavStatus = "APPROVED";
+        dao().approveDeny(argLeavId, leavStatus, argMgrComment);
+      } else {
+        res = "Leave Rejected";
+        leavStatus = "REJECTED";
+        dao().approveDeny(argLeavId, leavStatus, argMgrComment);
+        edao().increment(empId, leavAvail);
+      }
+    }
+    return res;
+  }
+
+ /**
+ * @param argEmpId to set leave id.
+ * * @param argLeaStDate to set Leave start date.
+   * @param argLeaEndDate to set Leave End date.
+   * @param argLeaNoOfDays to set LeaNOOfDays.
+   * @param argLeaType to set leave type.
+   * @param argLeaReas to set leave reason.
+   * @return leave applied statement.
+   * @throws ParseException in case there is an error in converting data.
+   */
+  public static String applyLeave(final int argEmpId,
+                                final String argLeaStDate,
+                                final String argLeaEndDate,
+                                final int argLeaNoOfDays,
+                                final LeaveType argLeaType,
+                                final String argLeaReas) throws ParseException {
+    SimpleDateFormat sdf =  new SimpleDateFormat("yyyy-MM-dd");
+    Date sdate = sdf.parse(argLeaStDate);
+    Date edate = sdf.parse(argLeaEndDate);
+    Date cur = new Date();
+    long ms = edate.getTime() - sdate.getTime();
+    long m = ms / (1000 * 24 * 60 * 60);
+    int days = (int) m;
+    days = days + 1;
+    System.out.println("Difference is " + days);
+    String res = "";
+    final Date curDate = new Date();
+    Employee e = edao().find(argEmpId);
+    final int empMgrid = e.getMgrId();
+    int leaAvail = e.getEmpLeaveBal();
+    System.out.println("Available  " + leaAvail);
+    int diff = leaAvail - days;
+
+    int count = dao().count(argEmpId, argLeaStDate, argLeaEndDate);
+    System.out.println("applied count status " + count);
+    if (count >= 1) {
+      res = "Already Applied on Given Date...";
+    } else if (days < 0) {
+      res = "EndDate must be greater than StartDate..";
+    } else if (diff < 0) {
+      res = "Insufficient Leave balance";
+    } else if (argLeaNoOfDays != days) {
+      res = "enter correct number of days as..." + days;
+    }  else if (sdate.compareTo(curDate) < 0) {
+      res = "start date is less than current date";
+    } else if (count == 1) {
+      res = "already applied on given dates..";
+    } else if (empMgrid == 0) {
+      LeaveStatus leaStatus = LeaveStatus.APPROVED;
+      String strleaAppOn = sdf.format(cur);
+      dao().insert(argLeaNoOfDays, argLeaStDate, argLeaEndDate,
+          argLeaType, argLeaReas, strleaAppOn, leaStatus, argEmpId);
+      edao().decrement(argEmpId, diff);
+      res = "Leave Autoapproved...";
+    } else {
+      LeaveStatus leaStatus = LeaveStatus.PENDING;
+      String strleaAppOn = sdf.format(cur);
+      dao().insert(argLeaNoOfDays, argLeaStDate, argLeaEndDate,
+          argLeaType, argLeaReas, strleaAppOn, leaStatus, argEmpId);
+      edao().decrement(argEmpId, diff);
+      res = "Leave Applied successfully";
+    }
+    return res;
+  }
 }
 
 

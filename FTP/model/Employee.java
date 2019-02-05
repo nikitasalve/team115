@@ -49,9 +49,9 @@ public class Employee {
 
   @Override
   public final String toString() {
-    return " Empid:" + empId + " EmpName:" + empFullName + " EmpEmail:"
-          +  empEmail + " EmpPhone:" + empMobile + " EmpDept:" + empDept + " EmpJoinDate:"
-          + empDOJ + " EmpMgrId:"   + empMgrId + " EmpLeaveId:" + empLeaveBal;
+    return " Employee ID:" + empId + " Employee Name:" + empFullName + " Email:"
+          +  empEmail + " Mobile:" + empMobile + " Department:" + empDept + " Join Date:"
+          + empDOJ + " Manager ID:"   + empMgrId + " applied Leave ID:" + empLeaveBal;
   }
 
   /**
