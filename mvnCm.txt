@@ -1,0 +1,10 @@
+mvn archetype:generate -DgroupId=com.hexaware.ftp115 -DartifactId=JunitDemos -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
+
+_________________________________________________________________
+
+<dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>

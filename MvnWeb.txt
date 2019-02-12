@@ -1,0 +1,1 @@
+mvn archetype:generate -DarchetypeArtifactId=jersey-quickstart-webapp -DarchetypeGroupId=org.glassfish.jersey.archetypes -DarchetypeVersion=2.25.1
