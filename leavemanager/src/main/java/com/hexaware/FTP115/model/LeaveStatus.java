@@ -7,15 +7,15 @@ package com.hexaware.FTP115.model;
 
 public enum LeaveStatus {
   /**
-  * leaveType to store EL.
+  * leaveStatus to store APPROVED.
   */
   APPROVED,
     /**
-    * leaveType to store PL.
+    * leaveStatus to store REJECTED.
     */
-  DENIED,
+  REJECTED,
     /**
-    * leaveType to store ML.
+    * leaveStatus to store PENDING.
     */
   PENDING;
 }

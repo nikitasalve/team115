@@ -4,6 +4,7 @@ import com.hexaware.FTP115.persistence.DbConnection;
 import com.hexaware.FTP115.persistence.EmployeeDAO;
 
 import java.util.Objects;
+import java.text.SimpleDateFormat;
 
 import java.util.List;
 import java.util.Date;
@@ -36,22 +37,36 @@ public class Employee {
       return false;
     }
     Employee emp = (Employee) obj;
-    if (Objects.equals(empId, emp.empId)) {
+    if (Objects.equals(empId, emp.empId)
+        && Objects.equals(empFullName, emp.empFullName)
+        && Objects.equals(empEmail, emp.empEmail)
+        && Objects.equals(empMobile, emp.empMobile)
+        && Objects.equals(empDOJ, emp.empDOJ)
+        && Objects.equals(empDept, emp.empDept)
+        && Objects.equals(empLeaveBal, emp.empLeaveBal)
+        && Objects.equals(empMgrId, emp.empMgrId)) {
       return true;
     }
     return false;
   }
-
   @Override
   public final int hashCode() {
-    return Objects.hash(empId);
+    return Objects.hash(empId, empFullName, empEmail, empMobile, empDept, empDOJ, empMgrId, empLeaveBal);
   }
 
   @Override
   public final String toString() {
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    String dj = sdf.format(empDOJ);
     return " Empid:" + empId + " EmpName:" + empFullName + " EmpEmail:"
-          +  empEmail + " EmpPhone:" + empMobile + " EmpDept:" + empDept + " EmpJoinDate:"
-          + empDOJ + " EmpMgrId:"   + empMgrId + " EmpLeaveId:" + empLeaveBal;
+          +  empEmail + " EmpPhone:" + empMobile + " EmpJoinDate:"
+          + dj +  " EmpDept:" + empDept + " EmpMgrId:"
+          + empMgrId + " EmpLeaveId:" + empLeaveBal;
+  }
+  /**
+  default Constructor.
+  */
+  public Employee() {
   }
 
   /**
@@ -156,7 +171,7 @@ public class Employee {
   /**
    * @param argEmpDept to set Employee's Department.
    */
-  public final void setEmpDept(final String argEmpDept) {
+  public final void setEmpDepart(final String argEmpDept) {
     this.empDept = argEmpDept;
   }
    /**
@@ -184,20 +199,21 @@ public class Employee {
    *
    * @param argEmpMgrId to set employee id.
    */
-  public final void setEmpMrgId(final int argEmpMgrId) {
+  public final void setMgrId(final int argEmpMgrId) {
     this.empMgrId = argEmpMgrId;
   }
   /**
-   *The dao for employee.
+   *The dao for employee to get the connection.
+   @return employeedao
    */
-  private static EmployeeDAO dao() {
+  public static EmployeeDAO dao() {
     DbConnection db = new DbConnection();
     return db.getConnect().onDemand(EmployeeDAO.class);
   }
 
   /**
-   * list all employee details.
-   * @return all employees' details
+   * get the list of all employees details.
+   * @return all employees details
    */
   public static Employee[] listAll() {
 

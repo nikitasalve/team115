@@ -10,13 +10,10 @@ import com.hexaware.FTP115.model.LeaveStatus;
 import com.hexaware.FTP115.model.LeaveType;
 
 import java.util.List;
-import java.util.Date;
-
 /**
    *The DAO class for employee.
    */
 public interface LeaveDetailsDAO {
-
     /**
     * return all the details of the selected employee.
     *@param leaEmpId the id of the employee.
@@ -24,8 +21,68 @@ public interface LeaveDetailsDAO {
     */
   @SqlQuery("SELECT * FROM LEAVE_DETAILS WHERE LEA_EMP_ID= :leaEmpId")
   @Mapper(LeaveDetailsMapper.class)
-  List<LeaveDetails> list(@Bind("leaEmpId") int leaEmpId);
+  List<LeaveDetails> leaveHistory(@Bind("leaEmpId") int leaEmpId);
 
+   /**
+    * return all the details of the selected employee.
+    *@param leaLeaveId the id of the leaveId.
+    @return the employee object.
+    */
+  @SqlQuery("SELECT * FROM LEAVE_DETAILS WHERE LEA_LEAVE_ID= :leaLeaveId")
+  @Mapper(LeaveDetailsMapper.class)
+  LeaveDetails listById(@Bind("leaLeaveId") int leaLeaveId);
+  /**
+    * return all the details of the selected employee.
+    *@param empId the id of the Manager.
+    @return the Pending Leaves of Manager.
+    */
+  @SqlQuery("SELECT * FROM leave_Details WHERE LEA_EMP_ID IN "
+        +
+      " (SELECT E2.Emp_ID FROM Employee E1 INNER JOIN EMPLOYEE E2 "
+        +
+      " ON E1.EMP_ID=E2.EMP_MGR_ID "
+        +
+      " WHERE E1.EMP_ID=:empId) "
+        +
+      " AND LEA_LEAVE_STATUS='PENDING'")
+  @Mapper(LeaveDetailsMapper.class)
+List<LeaveDetails> pending(@Bind("empId") int empId);
+
+  /**
+    * Update ApproveDeny Status .
+    * @param leaveStatus the LeaveStaus final valuer.
+    * @param mgrComm the Manager Response.
+    * @param leavId leaveid for approve/Deny.
+    */
+    /**
+    * return count for already applied leave history.
+    * @param empId the id of the employee.
+    * @param leaStDate of the start date.
+    * @param leaEndDate of the end date.
+    * @return total records.
+    */
+  @SqlQuery("SELECT COUNT(*) FROM LEAVE_DETAILS WHERE LEA_EMP_ID = :empId"
+        +
+        " AND LEA_LEAVE_STATUS = 'PENDING' AND "
+        +
+        " (LEA_START_DATE <= :leaStDate AND LEA_END_DATE >= :leaStDate OR "
+        +
+        "LEA_START_DATE <= :leaEndDate AND LEA_END_DATE >= :leaEndDate)")
+    int count(@Bind("empId") int empId,
+                      @Bind("leaStDate") String leaStDate,
+                      @Bind("leaEndDate") String leaEndDate);
+    /**
+     *return all the details for the selected employee.
+     * @param leavId the id of the manager.
+     * @param leaveStatus status of the emp.
+     * @param mgrComm to get the comment.
+     */
+  @SqlUpdate("UPDATE LEAVE_DETAILS SET LEA_LEAVE_STATUS = :leaveStatus,"
+        +
+        " LEA_MGR_COMMENTS = :mgrComm WHERE LEA_LEAVE_ID = :leavId")
+    void approveDeny(@Bind("leavId") int leavId,
+          @Bind("leaveStatus") String leaveStatus,
+          @Bind("mgrComm") String mgrComm);
     /**
      * return all the leave details of the employee.
      * @param leaNoOfDays leave total days of the employee.
@@ -45,7 +102,7 @@ public interface LeaveDetailsDAO {
             +
             "       LEA_END_DATE, "
             +
-            "       LEA_LEAVE_TYPE "
+            "       LEA_LEAVE_TYPE, "
             +
             "       LEA_REASON, "
             +
@@ -73,51 +130,12 @@ public interface LeaveDetailsDAO {
             +
             "              :leaEmpId)")
     void insert(@Bind("leaNoOfDays") int leaNoOfDays,
-            @Bind("leaStDate") Date leaStDate,
-            @Bind("leaEndDate") Date leaEndDate,
+            @Bind("leaStDate") String leaStDate,
+            @Bind("leaEndDate") String leaEndDate,
             @Bind("leaType") LeaveType leaType,
             @Bind("leaReas") String leaReas,
-            @Bind("leaAppOn") Date leaAppOn,
+            @Bind("leaAppOn") String leaAppOn,
             @Bind("leaStatus") LeaveStatus leaStatus,
             @Bind("leaEmpId") int leaEmpId);
-/**
-   * @param  empId of the employee.
-   * @param newBalance the id of the Leave balance.
-   */
-  @SqlUpdate("UPDATE EMPLOYEE SET"
-      +
-      "    EMP_AVAIL_LEAVE_BALANCE = :newBalance "
-      +
-      "    WHERE EMP_ID = :empId")
-void levBalance(@Bind("newBalance") int newBalance, @Bind("empId") int empId);
 
-/**
-   * @param  leaEmpId of the employee.
-   */
-  @SqlUpdate("UPDATE LEAVE_DETAILS SET"
-      +
-      "    LEAVE_STATUS = 'APPROVED' "
-      +
-      "    WHERE LEA_EMP_ID = :leaEmpId")
-  void autoapproved(@Bind("leaEmpId") int leaEmpId);
-/**
-    * @return returns the list.
-    * @param empId the id of the employee.
-    */
-  @SqlQuery("select distinct * from employee where EMP_MGR_ID  in ( :empId); ")
-  @Mapper(LeaveDetailsMapper.class)
-  LeaveDetails listMgr(@Bind("empId") int empId);
-
-/**
-* @param empId the id of the manager.
-* @return returns the list.
-*/
-  @SqlQuery("select * from employee where EMP_ID = (select  EMP_MGR_ID  from employee where EMP_ID  in (:empId)); ")
-  @Mapper(LeaveDetailsMapper.class)
-  LeaveDetails listMgr1(@Bind("empId") int empId);
-
-/**
-* close with no args is used to close the connection.
-*/
-  void close();
 }

@@ -22,16 +22,16 @@ public class LeaveDetailsMapper implements ResultSetMapper<LeaveDetails> {
      */
   public final LeaveDetails map(final int idx, final ResultSet rs, final StatementContext ctx)throws SQLException {
 
-    String s1 = rs.getString("LEAVE_TYPE");
+    String s1 = rs.getString("LEA_LEAVE_TYPE");
     LeaveType l1 = LeaveType.valueOf(s1);
 
-    String s2 = rs.getString("LEAVE_STATUS");
+    String s2 = rs.getString("LEA_LEAVE_STATUS");
     LeaveStatus l2 = LeaveStatus.valueOf(s2);
         /**
          * @return LeaveHistory
          */
     return new LeaveDetails(rs.getInt("LEA_LEAVE_ID"), rs.getInt("LEA_NO_OF_DAYS"), rs.getDate("LEA_START_DATE"),
-                rs.getDate("LEA_END_DATE"), l1, rs.getString("LEA_LEAVE_REASON"),
+                rs.getDate("LEA_END_DATE"), l1, rs.getString("LEA_REASON"),
                 rs.getDate("LEA_APPLIED_ON"), l2, rs.getString("LEA_MGR_COMMENTS"),
                 rs.getInt("LEA_EMP_ID"));
   }

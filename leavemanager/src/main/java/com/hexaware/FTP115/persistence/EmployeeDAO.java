@@ -3,6 +3,7 @@ package com.hexaware.FTP115.persistence;
 import com.hexaware.FTP115.model.Employee;
 
 import org.skife.jdbi.v2.sqlobject.Bind;
+import org.skife.jdbi.v2.sqlobject.SqlUpdate;
 import org.skife.jdbi.v2.sqlobject.SqlQuery;
 import org.skife.jdbi.v2.sqlobject.customizers.Mapper;
 
@@ -28,7 +29,24 @@ public interface EmployeeDAO  {
   @SqlQuery("SELECT * FROM EMPLOYEE WHERE EMP_ID = :empID")
   @Mapper(EmployeeMapper.class)
   Employee find(@Bind("empID") int empID);
+
   /**
+    * Update LeaveBalance after ApplyLeave.
+    *@param empId the id of the Manager.
+    * @param updBal the latest leave Balance.
+    */
+  @SqlUpdate("UPDATE EMPLOYEE SET EMP_AVAIL_LEAVE_BALANCE = :updBal WHERE EMP_ID = :empId")
+  void decrement(@Bind("empId") int empId, @Bind("updBal") int updBal);
+  /**
+    * Update LeaveBalance after ApplyLeave.
+    *@param empId the id of the Manager.
+    * @param updBal the latest leave Balance.
+    */
+  @SqlUpdate("UPDATE EMPLOYEE SET EMP_AVAIL_LEAVE_BALANCE = :updBal WHERE EMP_ID = :empId")
+    void increment(@Bind("empId") int empId, @Bind("updBal") int updBal);
+    /**
+  /**
+   *
   * close with no args is used to close the connection.
   */
   void close();
