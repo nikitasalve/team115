@@ -11,7 +11,7 @@ http://localhost:8080/FTP115Post/api/LeaveDetails/applyLeave/2000
 
 
 
-curl -vvv -H "Accept:application/json" -X POST -H "Content-Type:application/json" -d '{"leaNoOfDays":1,"leaStDate":"2020-10-12","leaEndDate":"2020-10-12","leaType":"EL","leaReas":"sick"}' "http://localhost:8080/FTP115Post/api/LeaveDetails/applyLeave/4000"
+curl -vvv -H "Accept:application/json" -X POST -H "Content-Type:application/json" -d '{"leaNoOfDays":1,"leaStDate":"2020-09-12","leaEndDate":"2020-09-12","leaType":"EL","leaReas":"sick"}' "http://localhost:8080/FTP115Post/api/LeaveDetails/applyLeave/4000"
 
 
  public static String approveDeny(final int argLeavId,
