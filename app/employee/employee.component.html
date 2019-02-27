@@ -1,0 +1,21 @@
+<p>
+  employee works!
+</p>
+<table border = "3">
+  <tr>
+    <th>empId</th><th>empFullName</th><th>empEmail</th><th>empMobile</th><th>empDOJ</th><th>empLeaveBal</th><th>empDepart</th>
+    <th>mgrId</th>
+  </tr>
+  <tr *ngFor="let employee of emps | async">
+    <td>{{employee.empId}}</td>
+    <td>{{employee.empFullName}}</td>
+    <td>{{employee.empEmail}}</td>
+    <td>{{employee.empMobile}}</td>
+    <td>{{employee.empDOJ}}</td>
+    <td>{{employee.empLeaveBal}}</td>
+    <td>{{employee.empDepart}}</td>
+    <td>{{employee.mgrId}}</td>
+    <input type = "button" value="login"  (click)="login(employee.empId,employee.mgrId)" />
+  </tr>
+</table>
+
