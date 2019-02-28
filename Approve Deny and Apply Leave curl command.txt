@@ -22,3 +22,6 @@ curl -vvv -H "Accept:application/json" -X POST -H "Content-Type:application/json
 
 curl -vvv -H "Accept:application/json" -X POST -H "Content-Type:application/json" -d '{"leaId":"18","leaMngCmts":"good"}' "http://localhost:8080/FTP115AppDeny/api/LeaveDetails/approveDeny/1000/NO"
 -------------------------------------------------------------------------------------
+
+curl commands to get:
+curl -X GET http://127.0.0.1:5984/demo
