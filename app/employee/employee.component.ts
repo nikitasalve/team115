@@ -19,7 +19,6 @@ uname:string;
   {
     localStorage.setItem("empId",empid);
     localStorage.setItem("mgrid",mgrid);
-    alert(mgrid);
     this. _router.navigate(["/login"]);
   }
 

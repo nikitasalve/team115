@@ -27,10 +27,10 @@ empid:number;
   }
   setClickRowDup(leaId,empId) {
     alert(leaId);
-    alert(empId);
     this.flag=true;
     localStorage.setItem("leavId",leaId);
     localStorage.setItem("lempId",empId);
+    alert("Employ ID" +this.empid);
   }
   doApproveDeny() {
     alert("Redirecting...");
@@ -38,6 +38,7 @@ empid:number;
   }
 
   doapplyLeave(){
+    alert("Redirecting to apply leave");
     this._router.navigate(["/applyLeave"]);
   }
   //login(uname)
