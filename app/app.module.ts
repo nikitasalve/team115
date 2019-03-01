@@ -15,6 +15,7 @@ import { LeavehistoryComponent } from './leavehistory/leavehistory.component';
 import { ApproveDenyComponent } from './approve-deny/approve-deny.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { ApplyleaveComponent } from './applyleave/applyleave.component';
+import { FilterdataPipe } from './filterdata.pipe';
 
 const data : Routes = [
   {path:'login' ,component : LoginComponent},
@@ -38,6 +39,7 @@ const data : Routes = [
     ApproveDenyComponent,
     DropdownComponent,
     ApplyleaveComponent,
+    FilterdataPipe,
 
   ],
   imports: [

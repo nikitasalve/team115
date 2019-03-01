@@ -13,12 +13,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./leave.component.css']
 })
 export class LeaveComponent implements OnInit {
-empid:number;
+  empid:number;
   uname:string;
-
   emps : Observable<Employee[]>;
   lev : Observable<Leave[]>;
   flag : boolean;
+  // order : string;
+  // reverse:boolean =true;
+
   constructor(private leaveService: LeaveService, private _router : Router, private empService : EmployeeService) { 
     this.emps = this.empService.getEmps();
      this.empid = parseInt(localStorage.getItem("empId"));
@@ -27,17 +29,26 @@ empid:number;
   }
   setClickRowDup(leaId,empId) {
     alert(leaId);
-    alert(empId);
     this.flag=true;
     localStorage.setItem("leavId",leaId);
     localStorage.setItem("lempId",empId);
+    alert("Employ ID" +this.empid);
   }
+
+  // setOrder(value:string){
+  //   if(this.order == value){
+  //       this.reverse =!this.reverse;
+  //   }
+  //   this.order = value;
+  // }
+
   doApproveDeny() {
     alert("Redirecting...");
     this._router.navigate(["/ApproveDeny"]);
   }
 
   doapplyLeave(){
+    alert("Redirecting to apply leave");
     this._router.navigate(["/applyLeave"]);
   }
   //login(uname)

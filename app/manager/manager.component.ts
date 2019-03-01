@@ -10,13 +10,13 @@ import { Observable } from 'rxjs';
 })
 export class ManagerComponent implements OnInit {
   employ:Observable<Employee>;
-  empno:number;
-  mgno:number;
+  //empno:number;
+  mgrno:number;
 
   constructor(private employeeService : EmployeeService) { 
-    this.empno = parseInt(localStorage.getItem("mgrid"));
-    alert(this.empno);
-    this.employ = employeeService.searchEmployee(this.empno);
+    this.mgrno = parseInt(localStorage.getItem("mgrid"));
+    alert("manager "+this.mgrno)
+    this.employ = employeeService.searchEmployee(this.mgrno);
 
   }
 

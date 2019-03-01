@@ -17,8 +17,8 @@ export class ApplyleaveComponent implements OnInit {
   empId:number;
 
   constructor(public applyleaveService:LeaveService, private router : Router) { 
-      this.empId=parseInt(localStorage.getItem("lempId"));
-      alert("Employ ID" +this.empId );
+      this.empId= parseInt(localStorage.getItem("empId"));
+      alert("Employ ID" + this.empId );
   }
   model = new Leave();
   message :string;

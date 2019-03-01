@@ -1,7 +1,7 @@
-<p>
-  leave works!
-</p>
-<table border = "3">
+<h3 align="center">
+  Employee Working below me and Applied leave details of respective Employees 
+</h3>
+<table border = "3" align="center">
   
     <tr *ngFor="let e of emps | async">
       <div *ngIf="e.mgrId == empid">
@@ -20,7 +20,7 @@
           <th>Mgr Comms</th>
         </tr>
         </div>
-        <table border = "3">
+        <table border = "3" >
         <tr *ngFor="let leave of lev | async" (click)="setClickRowDup(leave.leaId,leave.leaEmpId)"> 
 <div *ngIf="e.empId==leave.leaEmpId" rowspan=200 px>
   <td width="70">{{leave.leaId}}</td>
