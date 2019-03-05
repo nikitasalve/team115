@@ -1,3 +1,6 @@
+Angular Router is a powerful JavaScript router built and maintained by the Angular core team that can be installed from the @angular/router package. 
+The Angular router is a core part of the Angular platform. It enables developers to build Single Page Applications with multiple views and allow navigation between these views.
+
 The Angular Router enables navigation from one view to the next as users perform application tasks.
 
 for that you have to import 
@@ -76,4 +79,4 @@ property:- discription
 6) routeConfig :- The route configuration used for the route that contains the origin path.
 7) parent :- The route's parent ActivatedRoute when this route is a child route.
 8) firstChild :- Contains the first ActivatedRoute in the list of this route's child routes.
-9) childern :- 	Contains the first ActivatedRoute in the list of this route's child routes.
+9) childern :- 	Contains all the child routes activated under the current route.
