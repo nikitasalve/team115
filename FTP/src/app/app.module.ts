@@ -13,6 +13,7 @@ import { EmployComponent } from './employ/employ.component';
 import { ManagerComponent } from './manager/manager.component';
 import { LeavehistoryComponent } from './leavehistory/leavehistory.component';
 import { DropDownEventComponent } from './drop-down-event/drop-down-event.component';
+import { DropdownComponent } from './dropdown/dropdown.component';
 const data:Routes =[
   {path:'',component:EmployeeComponent},
   {path:'employeelogin',component:EmployeeloginComponent},
@@ -33,7 +34,8 @@ const data:Routes =[
     EmployComponent,
     ManagerComponent,
     LeavehistoryComponent,
-    DropDownEventComponent
+    DropDownEventComponent,
+    DropdownComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,RouterModule.forRoot(data)
