@@ -1,0 +1,47 @@
+<style>
+    .bg{
+      background-image: url("https://d2xf5gjipzd8cd.cloudfront.net/available/307352287/307352287_original.jpg");
+      height : 800px;
+      background-position:center;
+      background-repeat: no-repeat;
+      background-size:cover;
+      width: 100%;
+    
+      padding-top: 160px;
+    padding-right: 30px;
+    padding-bottom: 40%;
+    padding-left: 30%;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+  
+    }
+    </style> 
+       <meta charset="utf-8">
+      <title>Transparent login form</title>
+     
+      <body > 
+        
+          <div style='text-align:center' >
+        <div class="bg">
+      
+         <div style='text-align:left'> <h1> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Login </h1> </div>
+          <form name="frmLogin" (ngSubmit) ="login()"> 
+  
+            <br/>
+          <div class="textbox">
+             UserName:
+            <input type="text" placeholder="username" [(ngModel)] = "username"  name="username" value="1" align="center">
+          </div>
+          <div class="textbox">
+              Password:
+              <input type="text" placeholder="password" [(ngModel)] = "password" name="password" value="1">
+            </div>
+           
+            <input type = "submit" value = "login" >
+         </form>
+        </div>
+            
+          </div>
+       </body> 
