@@ -1,0 +1,27 @@
+  public static String applyLeave(final int argEmpId,
+                                final String argLeaStDate,
+                                final String argLeaEndDate,
+                                final int argLeaNoOfDays,
+                                final LeaveType argLeaType,
+                                final String argLeaReas
+
+
+
+http://localhost:8080/FTP115Post/api/LeaveDetails/applyLeave/2000
+
+
+
+curl -vvv -H "Accept:application/json" -X POST -H "Content-Type:application/json" -d '{"leaNoOfDays":1,"leaStDate":"2020-09-12","leaEndDate":"2020-09-12","leaType":"EL","leaReas":"sick"}' "http://localhost:8080/FTP115Post/api/LeaveDetails/applyLeave/4000"
+
+
+ public static String approveDeny(final int argLeavId,
+      final int argEmpMgrId,
+      final String argStatus,
+      final String argMgrComment
+
+
+curl -vvv -H "Accept:application/json" -X POST -H "Content-Type:application/json" -d '{"leaId":"18","leaMngCmts":"good"}' "http://localhost:8080/FTP115AppDeny/api/LeaveDetails/approveDeny/1000/NO"
+-------------------------------------------------------------------------------------
+
+curl commands to get:
+curl -X GET http://127.0.0.1:5984/demo

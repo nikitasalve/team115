@@ -1,0 +1,47 @@
+
+
+<body>
+  <div class="left">
+  <div style='text-align:left' >
+<div class="bg1">
+    <div class = "fieldset">
+<fieldset>
+<legend align="center"><h2>Approve Deny Details</h2></legend>
+Employee ID :
+{{ (empDetails  | async)?.empId }}<br/>
+Employee Name :
+{{(empDetails | async)?.empFullName}}<br/>
+Leave Balance : 
+{{(empDetails | async)?.empLeaveBal}} <br/>
+Start Date :
+{{(leaveDetails | async)?.leaStDate}} <br/>
+End Date :
+{{(leaveDetails | async)?.leaEndDate}} <br/>
+Number of days :
+{{(leaveDetails | async)?.leaNoOfDays}} <br/>
+LeaveType :
+{{(leaveDetails | async)?.leaType}} <br/>
+Reason :
+{{(leaveDetails | async)?.leaReas}} <br/>
+<div class="form-group">
+Comments :
+<input type="text" [(ngModel)]="obj.leaMngCmts" name="" class="input" style="margin-left:20px;">
+</div>
+<br/>
+
+<button  (click)="approve()" class="btn btn-success">&nbsp;approve&nbsp;</button>
+
+<button  (click)="deny()" class="btn btn-danger">deny</button>
+<button  (click)="cancel()" class="btn btn-primary">cancel</button>
+<br/><br/>
+
+Result is :
+{{message}}
+
+</fieldset>
+</div>
+</div>
+</div>
+  </div>
+  
+</body>

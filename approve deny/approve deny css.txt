@@ -1,0 +1,44 @@
+body{
+    margin: 0;
+  padding: 0; 
+  font-family: sans-serif; 
+  color: white;
+   background-size: cover;  
+    height: 100%;
+} 
+.bg1{
+    background-image: url("https://d2xf5gjipzd8cd.cloudfront.net/available/307352287/307352287_original.jpg");
+    height : 800px;
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    width: 100%;
+  
+    padding-top: 160px;
+  padding-right: 30px;
+  padding-bottom: 40%;
+  padding-left: 30%;
+  font-size: 25px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  .fieldset { 
+  display: block;
+  margin-left: 30px;
+  margin-right: 30px;
+  padding-top: 0em;
+  padding-bottom: 5.62em;
+  padding-left:-10em;
+  padding-right: 0.75em;
+  border: 2px groove (internal value);
+  float: left;
+  width:700px;
+}
+input{
+  font-size:20pt;
+  height:25px;
+  width:100px;
+}
+
