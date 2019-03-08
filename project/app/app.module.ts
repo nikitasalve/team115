@@ -17,12 +17,20 @@ import { ApproveDenyComponent } from './approve-deny/approve-deny.component';
 import { ApplyleaveComponent } from './applyleave/applyleave.component';
 import { FilterdataPipe } from './filterdata.pipe';
 import { SortdataPipe } from './sortdata.pipe';
+<<<<<<< HEAD:app/app.module.ts
 import {LeaveService} from './leave.service';
 import {NgxPaginationModule} from 'ngx-pagination';
 
 
 const data : Routes = [
   {path:'' ,component:EmployeeComponent},
+=======
+import { MainpageComponent } from './mainpage/mainpage.component';
+
+
+const data : Routes = [
+  {path:'' ,component:MainpageComponent},
+>>>>>>> a30735c74f7b6949c318928c6f90dfc6c2d846ee:project/app/app.module.ts
   // {path:'dashboard/employ', component:EmployComponent},
   // {path:'dashboard/manager', component:ManagerComponent},
   {path:'login' ,component : LoginComponent},
@@ -72,7 +80,13 @@ const data : Routes = [
     ApplyleaveComponent,
     FilterdataPipe,
     SortdataPipe,
+<<<<<<< HEAD:app/app.module.ts
 ],
+=======
+    MainpageComponent,
+
+  ],
+>>>>>>> a30735c74f7b6949c318928c6f90dfc6c2d846ee:project/app/app.module.ts
   imports: [
     BrowserModule,HttpModule,FormsModule,NgxPaginationModule,
     RouterModule.forRoot(data)

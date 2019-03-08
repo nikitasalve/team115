@@ -22,10 +22,17 @@ export class LeaveComponent implements OnInit {
   flag : boolean;
   order : string = 'leaStDate';
   reverse:boolean = true;
+<<<<<<< HEAD:app/leave/leave.component.ts
   sempno :string = 'empId';
   rev :boolean = false;
   leaveId : number;
   private prices = [];
+=======
+
+  sempno :string = 'empId';
+  rev :boolean = false;
+
+>>>>>>> a30735c74f7b6949c318928c6f90dfc6c2d846ee:project/app/leave/leave.component.ts
   constructor(private leaveService: LeaveService, private _router : Router, private empService : EmployeeService) { 
     this.emps = this.empService.getEmps();
     this.empid = parseInt(localStorage.getItem("empId"));
@@ -83,7 +90,10 @@ export class LeaveComponent implements OnInit {
     localStorage.setItem("lempId",empId);
   }
 
+<<<<<<< HEAD:app/leave/leave.component.ts
  
+=======
+>>>>>>> a30735c74f7b6949c318928c6f90dfc6c2d846ee:project/app/leave/leave.component.ts
   setOrder(value:string){
     if(this.order == value){
         this.reverse =!this.reverse;

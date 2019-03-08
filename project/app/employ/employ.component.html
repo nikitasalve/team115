@@ -1,3 +1,4 @@
+<<<<<<< HEAD:app/employ/employ.component.html
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -60,5 +61,54 @@
    
 
     
+=======
+
+<br/>
+<br/>
+<div border>
+<img src="https://i.pinimg.com/236x/40/18/03/401803755170c9750ab19646a064f534.jpg" alt="Avatar"  class="center">
+<h4 align="center">{{(employ | async)?.empFullName}}</h4>
+</div>
+<!-- <h4>Employee ID : {{ (employ  | async)?.empId }}</h4> -->
+<table border="2" align="center">
+<tr>
+<th>Employee ID:</th>
+<th>Email:</th>
+<th>Mobile:</th>
+<th>Date of Joining:</th>
+<th>LeaveBal:</th>
+<th>Dept:</th>
+<th>MgrId:</th>
+</tr>
+<tr>
+  <th>
+      {{ (employ  | async)?.empId }}
+  </th>
+<th>
+    {{(employ | async)?.empEmail}}
+    </th>
+    
+    <th>
+    {{(employ | async)?.empMobile}}
+    </th>
+    
+    <th>
+    {{(employ | async)?.empDOJ}}
+    </th>
+    
+    <th>
+    {{(employ | async)?.empLeaveBal}}
+    </th>
+    
+    <th>
+    {{(employ | async)?.empDepart}}
+    </th>
+    
+    <th>
+    {{(employ | async)?.mgrId}} 
+    </th>
+</tr>
+</table>
+>>>>>>> a30735c74f7b6949c318928c6f90dfc6c2d846ee:project/app/employ/employ.component.html
  
 

@@ -4,14 +4,19 @@
 <h3 align="center"> 
   Manager Details
 </h3>
+<<<<<<< HEAD:app/manager/manager.component.html
 <div *ngIf= "mgrno == 0; then thenBlock; else elseBlock;"> </div>
 
+=======
+<div *ngIf= "mgrno == 0; then thenBlock; else elseBlock;"> </div> 
+>>>>>>> a30735c74f7b6949c318928c6f90dfc6c2d846ee:project/app/manager/manager.component.html
 <ng-template #thenBlock>
     <div align="center"> <b> No manager </b> </div>
 </ng-template>
 
 <ng-template #elseBlock>
 <div *ngIf="empno != 0">
+<<<<<<< HEAD:app/manager/manager.component.html
     <div class="backgroundemp">
         <br/>
         <br/>
@@ -41,6 +46,30 @@
               </div>
         </div>
       </div>
+=======
+<table border="2" align="center" >
+  <tr>
+  <th>Empno:</th>
+  <th>Name:</th>
+  <th>Email:</th>
+  <th>Mobile:</th>
+  <th>Date of Joining:</th>
+  <th>LeaveBal:</th>
+  <th>Dept:</th>
+  <th>MgrId:</th>
+  </tr>
+  <tr>
+      <th>{{(employ | async)?.empId}}</th>
+      <th>{{(employ | async)?.empFullName}}</th>
+      <th>{{(employ | async)?.empEmail}}</th>
+      <th>{{(employ | async)?.empMobile}}</th>
+      <th>{{(employ | async)?.empDOJ}}</th>
+      <th>{{(employ | async)?.empLeaveBal}}</th>
+      <th>{{(employ | async)?.empDepart}}</th>
+      <th>{{(employ | async)?.mgrId}}</th>
+  </tr>
+</table>
+>>>>>>> a30735c74f7b6949c318928c6f90dfc6c2d846ee:project/app/manager/manager.component.html
 </div>
 </ng-template>
 
