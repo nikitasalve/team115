@@ -1,11 +1,14 @@
-<h3 >
-  <b>Employee Details</b>
-</h3>
- 
- <h4>Employee ID : {{ (employ  | async)?.empId }}</h4>
+
+<br/>
+<br/>
+<div border>
+<img src="https://i.pinimg.com/236x/40/18/03/401803755170c9750ab19646a064f534.jpg" alt="Avatar"  class="center">
+<h4 align="center">{{(employ | async)?.empFullName}}</h4>
+</div>
+<!-- <h4>Employee ID : {{ (employ  | async)?.empId }}</h4> -->
 <table border="2" align="center">
 <tr>
-<th>Name:</th>
+<th>Employee ID:</th>
 <th>Email:</th>
 <th>Mobile:</th>
 <th>Date of Joining:</th>
@@ -15,7 +18,7 @@
 </tr>
 <tr>
   <th>
-{{(employ | async)?.empFullName}}
+      {{ (employ  | async)?.empId }}
   </th>
 <th>
     {{(employ | async)?.empEmail}}
@@ -40,10 +43,6 @@
     <th>
     {{(employ | async)?.mgrId}} 
     </th>
-
 </tr>
-
-
 </table>
-
  

@@ -16,14 +16,45 @@ import { ApproveDenyComponent } from './approve-deny/approve-deny.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { ApplyleaveComponent } from './applyleave/applyleave.component';
 import { FilterdataPipe } from './filterdata.pipe';
+import { SortdataPipe } from './sortdata.pipe';
+import { MainpageComponent } from './mainpage/mainpage.component';
+
 
 const data : Routes = [
+  {path:'' ,component:MainpageComponent},
+  // {path:'dashboard/employ', component:EmployComponent},
+  // {path:'dashboard/manager', component:ManagerComponent},
   {path:'login' ,component : LoginComponent},
-  {path:'' ,component : EmployeeComponent},
-  {path:'dashboard',component:DashboardComponent},
-  {path:'leave',component: LeaveComponent},
+  // {path:'dashboard/history' ,component : LeavehistoryComponent},
+  {path:'employee' ,component : EmployeeComponent},
+  {path:'dashboard',component:DashboardComponent,
+  children: [                          //<---- child components declared here
+    {
+        path:'employ',
+        component: EmployComponent
+    },
+    {
+        path:'manager',
+        component: ManagerComponent
+    },
+    {
+      path:'leave',
+      component: LeaveComponent
+    },
+    {
+      path:'applyLeave',
+      component: ApplyleaveComponent
+    },
+    {
+      path:'history',
+      component: LeavehistoryComponent
+    },
+
+
+  ]},
+  // {path:'dashboard/leave',component: LeaveComponent},
   {path:'ApproveDeny',component: ApproveDenyComponent},
-  {path:'applyLeave',component: ApplyleaveComponent}
+  // {path:'dashboard/applyLeave',component: ApplyleaveComponent}
 ];
 
 @NgModule({
@@ -40,6 +71,8 @@ const data : Routes = [
     DropdownComponent,
     ApplyleaveComponent,
     FilterdataPipe,
+    SortdataPipe,
+    MainpageComponent,
 
   ],
   imports: [

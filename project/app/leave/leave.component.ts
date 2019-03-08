@@ -15,11 +15,15 @@ import { Router } from '@angular/router';
 export class LeaveComponent implements OnInit {
   empid:number;
   uname:string;
+  leaves : Observable<Leave[]>;
   emps : Observable<Employee[]>;
   lev : Observable<Leave[]>;
   flag : boolean;
-  // order : string;
-  // reverse:boolean =true;
+  order : string = 'leaStDate';
+  reverse:boolean = true;
+
+  sempno :string = 'empId';
+  rev :boolean = false;
 
   constructor(private leaveService: LeaveService, private _router : Router, private empService : EmployeeService) { 
     this.emps = this.empService.getEmps();
@@ -35,12 +39,12 @@ export class LeaveComponent implements OnInit {
     alert("Employ ID" +this.empid);
   }
 
-  // setOrder(value:string){
-  //   if(this.order == value){
-  //       this.reverse =!this.reverse;
-  //   }
-  //   this.order = value;
-  // }
+  setOrder(value:string){
+    if(this.order == value){
+        this.reverse =!this.reverse;
+    }
+    this.order = value;
+  }
 
   doApproveDeny() {
     alert("Redirecting...");

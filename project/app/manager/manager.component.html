@@ -1,13 +1,14 @@
 <h3 align="center">
   Manager Details
 </h3>
-<div *ngIf="empno==0;then thenBlock;else elseBlock;"> </div> 
+<div *ngIf= "mgrno == 0; then thenBlock; else elseBlock;"> </div> 
 <ng-template #thenBlock>
-    <div> <b> No manager </b> </div>
+    <div align="center"> <b> No manager </b> </div>
 </ng-template>
+
 <ng-template #elseBlock>
 <div *ngIf="empno != 0">
-<table border="2" align="center">
+<table border="2" align="center" >
   <tr>
   <th>Empno:</th>
   <th>Name:</th>

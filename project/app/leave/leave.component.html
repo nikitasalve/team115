@@ -2,13 +2,10 @@
   Employee Working below me and Applied leave details of respective Employees 
 </h3>
 <table border = "3" align="center">
-  
-    <tr *ngFor="let e of emps | async">
-      <div *ngIf="e.mgrId == empid">
+  <tr *ngFor="let e of emps | async | orderBy : sempno : rev ">
+    <div *ngIf="e.mgrId == empid">
         <th>EmpId</th><td>{{e.empId}}</td>
-        <th>FullName</th><td>{{e.empFullName}}</td><th>LeaveBalance</th><td>{{e.empLeaveBal}}
-          
-        </td>
+        <th>FullName</th><td>{{e.empFullName}}</td><th>LeaveBalance</th><td>{{e.empLeaveBal}}</td>
         <tr border="3">
           <th width="70">Leave Id</th>
           <th>Employee Id</th>
@@ -19,21 +16,21 @@
           <th>Applied On</th>
           <th>Mgr Comms</th>
         </tr>
-        </div>
-        <table border = "3" >
-        <tr *ngFor="let leave of lev | async" (click)="setClickRowDup(leave.leaId,leave.leaEmpId)"> 
-<div *ngIf="e.empId==leave.leaEmpId" rowspan=200 px>
-  <td width="70">{{leave.leaId}}</td>
-  <td width="90">{{leave.leaEmpId}}</td>
-  <td width="80">{{leave.leaStDate}}</td>
-  <td width="70">{{leave.leaEndDate}}</td>
-  <td width="80">{{leave.leaNoOfDays}}</td>
-  <td width="80">{{leave.leaReas}}</td>
-  <td width="80">{{leave.leaAppOn}}</td>
-  <td width="80">{{leave.leaMngCmts}}</td>
-  </div>
-</tr>
-</table>
+    </div>
+  <table border = "3" >
+    <tr *ngFor="let leave of lev | async | orderBy : order : reverse" (click)="setClickRowDup(leave.leaId,leave.leaEmpId)"> 
+      <div *ngIf="e.empId==leave.leaEmpId" rowspan=200 px>
+            <td width="70">{{leave.leaId}}</td>
+            <td width="90">{{leave.leaEmpId}}</td>
+            <td width="80">{{leave.leaStDate}}</td>
+            <td width="70">{{leave.leaEndDate}}</td>
+            <td width="80">{{leave.leaNoOfDays}}</td>
+            <td width="80">{{leave.leaReas}}</td>
+            <td width="80">{{leave.leaAppOn}}</td>
+            <td width="80">{{leave.leaMngCmts}}</td>
+      </div>
+    </tr>
+  </table>
 </table>
 <br/><br/>
 <!-- <div align="center">
