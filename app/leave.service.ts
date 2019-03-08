@@ -4,12 +4,9 @@ import { Observable } from 'rxjs';
 import { Leave } from "../app/leave";
 import 'rxjs/add/operator/map';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class LeaveService {
-    
-      constructor(private http: Http) {
+  constructor(private http: Http) {
     
        }
     

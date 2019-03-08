@@ -15,7 +15,6 @@ export class ManagerComponent implements OnInit {
 
   constructor(private employeeService : EmployeeService) { 
     this.mgrno = parseInt(localStorage.getItem("mgrid"));
-    alert("manager "+this.mgrno)
     this.employ = employeeService.searchEmployee(this.mgrno);
 
   }

@@ -15,32 +15,81 @@ import { Router } from '@angular/router';
 export class LeaveComponent implements OnInit {
   empid:number;
   uname:string;
+  leaves : Observable<Leave[]>;
   emps : Observable<Employee[]>;
+  lpending : Leave[] = [];
   lev : Observable<Leave[]>;
   flag : boolean;
-  // order : string;
-  // reverse:boolean =true;
-
+  order : string = 'leaStDate';
+  reverse:boolean = true;
+  sempno :string = 'empId';
+  rev :boolean = false;
+  leaveId : number;
+  private prices = [];
   constructor(private leaveService: LeaveService, private _router : Router, private empService : EmployeeService) { 
     this.emps = this.empService.getEmps();
-     this.empid = parseInt(localStorage.getItem("empId"));
+    this.empid = parseInt(localStorage.getItem("empId"));
     this.lev = leaveService.getLevPending(this.empid);
-    this.flag=false;
+    this.flag = false;
+    this.leaveId = parseInt(localStorage.getItem("leavId"));
+    alert("total leaves:"+this.lev);
+    alert(this.leaveId);
   }
+  demo : boolean = false;
+  //leaIdlist = [];
+  empList= [];
+  obj : Leave;
+  mgrid : number;
+  status : string;
+  message : String;
+  
+  approveAll() {  
+  
+    this.status="YES";
+    this.mgrid = parseInt(localStorage.getItem("empId"));
+    this.obj = new Leave(); 
+    //alert(this.empList);
+    let str = this.empList.toString();   
+    //alert(str);
+    let res = str.split(',');
+    for(var v in res) {
+      this.obj.leaId=parseInt(res[v]);
+      this.obj.leaMngCmts = "Enjoy";
+      this.leaveService.approveDeny(this.mgrid,this.status,this.obj).subscribe(
+        dd => {this.message=dd;
+        },
+        errorMsg => {
+          this.message=errorMsg;
+          console.log(errorMsg)
+        }
+      )
+      setTimeout(()=> {
+        this._router.navigate(['/dashboard'])
+      },2000);
+    }
+  }
+
+  checkbox(leaId, mgrId)
+  {
+    alert("Total Rec " + this.lpending.length);
+    this.demo=true;
+    var res1 = leaId + " ";
+    this.empList.push(res1);
+  }
+
   setClickRowDup(leaId,empId) {
-    alert(leaId);
     this.flag=true;
     localStorage.setItem("leavId",leaId);
     localStorage.setItem("lempId",empId);
-    alert("Employ ID" +this.empid);
   }
 
-  // setOrder(value:string){
-  //   if(this.order == value){
-  //       this.reverse =!this.reverse;
-  //   }
-  //   this.order = value;
-  // }
+ 
+  setOrder(value:string){
+    if(this.order == value){
+        this.reverse =!this.reverse;
+    }
+    this.order = value;
+  }
 
   doApproveDeny() {
     alert("Redirecting...");
@@ -49,7 +98,7 @@ export class LeaveComponent implements OnInit {
 
   doapplyLeave(){
     alert("Redirecting to apply leave");
-    this._router.navigate(["/applyLeave"]);
+    this._router.navigate(["dashboard/applyLeave"]);
   }
   //login(uname)
   // {
@@ -57,7 +106,8 @@ export class LeaveComponent implements OnInit {
   //   this. _router.navigate(["/login"]);
   // }
 
-  ngOnInit() {
+  ngOnInit() { 
+    this.leaveService.getLevPending(this.empid).subscribe(res => {this.lpending = res});
   }
 
 }

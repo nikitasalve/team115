@@ -1,4 +1,69 @@
 th {
-    background-color: #4CAF50;
-    color: white;
-  }  
+  background-color: #0B4859;
+  color: white;
+} 
+
+ /* th,td{
+  border: 1px solid black;
+}  */
+th:hover,td:hover{
+  background-color:#2E484F;
+}
+/* tr:hover {
+  background-color:#C6BDBD;
+  border:1px solid black;
+} */
+h1:hover {
+  background-color: yellow;
+  border-radius: 20px;
+}
+ /* table {
+border: 1px;
+border-radius: 5px;
+padding: 10vw;
+
+} */
+
+table, th, td {
+border: 2px solid #050023;
+border-collapse: collapse;
+padding:12px;
+margin:2%;
+color: white;
+
+}
+
+input[type=button] {
+  padding:15px 15px; 
+  background:none; 
+  border:2px 2px white;
+  -webkit-border-radius: 5px;
+  box-shadow:2px 2px 2px 2px gray;
+  cursor: pointer;
+  color: white;
+}
+input[type=button]:hover {
+background-color: #041026;
+}
+
+input[type=button]:active {
+  transform: translateY(5px);
+}
+/* .backdis{
+background-color: lightblue;
+} */
+
+input[type=search] { 	
+	padding: 5px;            /* Overridden by padding: 1px; */
+	font-family: Georgia;     /* Overridden by font: -webkit-small-control; */
+	border: 1px solid black;  /* Overridden by border: 2px inset; */
+	background: white;          /* Overridden by background-color: white; */
+  line-height: 2;           /* Irrelevant, I guess */
+  /* margin-left: 10%;
+  margin-right: 10%; */
+  border-radius: 10px;
+  box-shadow: 1px 5px 5px 2px gray;
+  width:400px;
+  cursor: pointer;
+}
+

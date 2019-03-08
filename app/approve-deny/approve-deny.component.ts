@@ -4,7 +4,7 @@ import { Leave } from '../leave';
 import { Observable } from 'rxjs';
 import { Employee } from '../employee';
 import {EmployeeService } from '../employee.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-approve-deny',
   templateUrl: './approve-deny.component.html',
@@ -21,7 +21,7 @@ message : String;
 mgrid : number;
 
 
-  constructor(private leaveService:LeaveService, private empservice:EmployeeService) { 
+  constructor(private leaveService:LeaveService, private empservice:EmployeeService,private r : Router) { 
 
     this.leaveId = parseInt(localStorage.getItem("leavId"));
     this.empid = parseInt(localStorage.getItem("lempId"));
@@ -57,6 +57,9 @@ mgrid : number;
       )
     }
 
+    cancel() {
+      this.r.navigate(["dashboard"]);
+    }
   ngOnInit() {
   }
 

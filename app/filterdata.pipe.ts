@@ -4,6 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'filterdata'
 })
 export class FilterdataPipe implements PipeTransform {
+
   transform(items: any, filter: any, defaultFilter: boolean): any {
     if (!filter){
       return items;
@@ -30,5 +31,5 @@ export class FilterdataPipe implements PipeTransform {
       }
     }
   }
-}
 
+}

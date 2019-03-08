@@ -18,19 +18,19 @@ export class ApplyleaveComponent implements OnInit {
 
   constructor(public applyleaveService:LeaveService, private router : Router) { 
       this.empId= parseInt(localStorage.getItem("empId"));
-      alert("Employ ID" + this.empId );
   }
   model = new Leave();
   message :string;
   msg : String;
   isValidFormSubmitted = false;
+
   calcNoofDays(){
     let date1: string=this.model.leaStDate.toString();
     let date2: string=this.model.leaEndDate.toString();
     let diffInMs: number= Date.parse(date2)-Date.parse(date1);
     let diffInhrs: number=diffInMs/1000/60/60/24;
     this.model.leaNoOfDays=diffInhrs+1;
-}
+  }
 
 Applyleave(form:NgForm)
 {
@@ -55,8 +55,6 @@ setTimeout(()=> {
 },10000);
 }
 
-
-  
   ngOnInit() {
   }
 

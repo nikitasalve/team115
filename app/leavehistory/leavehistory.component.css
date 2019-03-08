@@ -1,0 +1,12 @@
+table {
+    width: 100px;
+    height: 100px;
+    -webkit-transition: width 2s; /* Safari */
+    transition: width 2s;
+    box-shadow: 1px 8px 10px 2px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+table:hover {
+    width: 300px;
+  }

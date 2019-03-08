@@ -1,34 +1,46 @@
-<h3 align="center">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<h3 align="center"> 
   Manager Details
 </h3>
-<div *ngIf="empno==0;then thenBlock;else elseBlock;"> </div> 
+<div *ngIf= "mgrno == 0; then thenBlock; else elseBlock;"> </div>
+
 <ng-template #thenBlock>
-    <div> <b> No manager </b> </div>
+    <div align="center"> <b> No manager </b> </div>
 </ng-template>
+
 <ng-template #elseBlock>
 <div *ngIf="empno != 0">
-<table border="2" align="center">
-  <tr>
-  <th>Empno:</th>
-  <th>Name:</th>
-  <th>Email:</th>
-  <th>Mobile:</th>
-  <th>Date of Joining:</th>
-  <th>LeaveBal:</th>
-  <th>Dept:</th>
-  <th>MgrId:</th>
-  </tr>
-  <tr>
-      <th>{{(employ | async)?.empId}}</th>
-      <th>{{(employ | async)?.empFullName}}</th>
-      <th>{{(employ | async)?.empEmail}}</th>
-      <th>{{(employ | async)?.empMobile}}</th>
-      <th>{{(employ | async)?.empDOJ}}</th>
-      <th>{{(employ | async)?.empLeaveBal}}</th>
-      <th>{{(employ | async)?.empDepart}}</th>
-      <th>{{(employ | async)?.mgrId}}</th>
-  </tr>
-</table>
+    <div class="backgroundemp">
+        <br/>
+        <br/>
+        <div class="card">
+      <div *ngIf="mgrno==1000">
+          <img src="assets/images/1000.png" alt="Avatar"  class="center">
+          </div>
+          <div *ngIf="mgrno==2000">
+              <img src="assets/images/2000.jpg" alt="Avatar"  class="center">
+          </div>
+          <div *ngIf="mgrno==3000">
+              <img src="assets/images/3000.png" alt="Avatar"  class="center">
+          </div>
+          <div class="container">
+              <h4 align="center"><b>{{(employ | async)?.empFullName}}</b></h4>
+              
+              <b>Employee ID:</b>{{ (employ  | async)?.empId }}<br/>
+              <b>Email:</b> {{(employ | async)?.empEmail}} <br/>
+              <b>Mobile:</b>{{(employ | async)?.empMobile}} <br/> 
+              <b>Date of Joining:</b>  {{(employ | async)?.empDOJ}}<br/>
+              <b>Department:</b> {{(employ | async)?.empDepart}} <br/>
+              
+              <a href="#"><i class="fa fa-dribbble"></i></a>&nbsp;&nbsp;&nbsp;
+              <a href="#"><i class="fa fa-twitter"></i></a>&nbsp;&nbsp;&nbsp;
+              <a href="#"><i class="fa fa-linkedin"></i></a>&nbsp;&nbsp;&nbsp;
+              <a href="#"><i class="fa fa-facebook"></i></a>&nbsp;&nbsp;&nbsp;
+              </div>
+        </div>
+      </div>
 </div>
 </ng-template>
 

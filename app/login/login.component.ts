@@ -15,8 +15,7 @@ export class LoginComponent implements OnInit {
        this.username = localStorage.getItem("empId");
     }
     login() {
-      if(this.username == localStorage.getItem("empId")) {
-         alert("success");
+      if(this.username == localStorage.getItem("empId") && this.password =="123") {
          this.r.navigate(["/dashboard"]);
       } else {
         alert("Invalid credentials..");

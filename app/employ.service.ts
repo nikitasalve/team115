@@ -4,11 +4,9 @@ import { Observable } from 'rxjs';
 import { Employee } from "./employee";
 import 'rxjs/add/operator/map';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class EmployService {
-
+  
   constructor(private http: Http) { }
   searchEmployee(empno:number): Observable<Employee[]> {
     return this.http.get
