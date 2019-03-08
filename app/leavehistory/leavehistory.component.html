@@ -1,0 +1,26 @@
+<br/><br/>
+<table border = "3" align= "center">  
+    <tr>
+      <th>leaId</th><th>leaNoOfDays</th><th>leaStDate</th><th>leaEndDate</th><th>leaType</th><th>leaAppOn</th><th>leaStatus</th>
+      <th>leaMngCmts</th><th>leaEmpId</th>
+    </tr>
+     <!-- <tr *ngFor="let u of leaveDetails1 | async" >  -->
+    <tr *ngFor="let u of leaveDetails1 | async | paginate : {id: 'listing_pagination',
+    itemsPerPage: 4,
+    currentPage: page,
+    totalItems: totalRec}" >
+      <td>{{u.leaId}}</td>
+      <td>{{u.leaNoOfDays}}</td>
+      <td>{{u.leaStDate}}</td>
+      <td>{{u.leaEndDate}}</td>
+      <td>{{u.leaType}}</td>
+      <td>{{u.leaAppOn}}</td>
+      <td>{{u.leaStatus}}</td>
+      <td>{{u.leaMngCmts}}</td>
+      <td>{{u.leaEmpId}}</td>
+    </tr>
+    </table>
+    <br/><br/>
+    <div>
+      <pagination-controls id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+    </div>

@@ -1,0 +1,64 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<div class="backgroundemp">
+<br/>
+<br/>
+<div class="card">
+
+<div *ngIf="empno==1000">
+<img src="assets/images/1000.png" alt="Avatar"  class="center">
+</div>
+<div *ngIf="empno==2000">
+    <img src="assets/images/2000.jpg" alt="Avatar"  class="center">
+</div>
+<div *ngIf="empno==3000">
+    <img src="assets/images/3000.png" alt="Avatar"  class="center">
+</div>
+<div *ngIf="empno==4000">
+    <img src="assets/images/4000.png" alt="Avatar"  class="center">
+</div>
+<div *ngIf="empno==5000">
+    <img src="assets/images/5000.png" alt="Avatar"  class="center">
+</div>
+<div class="container">
+<h4 align="center"><b>{{(employ | async)?.empFullName}}</b></h4>
+
+<b>Employee ID:</b>{{ (employ  | async)?.empId }}<br/>
+<b>Email:</b> {{(employ | async)?.empEmail}} <br/>
+<b>Mobile:</b>{{(employ | async)?.empMobile}} <br/> 
+<b>Date of Joining:</b>  {{(employ | async)?.empDOJ}}<br/>
+<b>Leave Balance:</b>{{(employ | async)?.empLeaveBal}} <br/>
+<b>Department:</b> {{(employ | async)?.empDepart}} <br/>
+<b>Manager ID:</b>{{(employ | async)?.mgrId}} <br/><br/>
+
+<a href="#"><i class="fa fa-dribbble"></i></a>&nbsp;&nbsp;&nbsp;
+<a href="#"><i class="fa fa-twitter"></i></a>&nbsp;&nbsp;&nbsp;
+<a href="#"><i class="fa fa-linkedin"></i></a>&nbsp;&nbsp;&nbsp;
+<a href="#"><i class="fa fa-facebook"></i></a>&nbsp;&nbsp;&nbsp;
+</div>
+<!-- <h4>Employee ID : {{ (employ  | async)?.empId }}</h4> -->
+</div>
+</div>
+
+
+   
+  
+ 
+  
+   
+    
+
+   
+
+    
+
+   
+ 
+    
+
+   
+
+    
+ 
+

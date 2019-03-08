@@ -1,0 +1,36 @@
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
+</head>
+<div class="backdis">
+<br/><br/>
+<div class="form-group" align="center">
+    <div class="input-group">
+      <div class="input-group-addon"><i class="glyphicon glyphicon-search"></i></div>
+      <input type ="search" class="form-control" name="searchString" placeholder="Type to search... "[(ngModel)]="searchString">
+    </div>
+<br/>
+<table align="center">
+  <thead>
+  <tr>
+    <th><b>Employee ID</b></th><th><b>Full Name</b></th><th><b>Email Address</b></th><th><b>Mobile number</b></th><th><b>Date of Joining</b></th><th><b>Leave Balance</b></th><th><b>Department</b></th>
+    <th><b>Manager ID</b></th><th><b>Login</b></th>
+  </tr>
+  </thead>
+  <tr *ngFor="let employee of emps | async | filterdata : {empFullName : searchString, empId : searchString, empEmailId : searchString} ">
+    <td>{{employee.empId}}</td>
+    <td>{{employee.empFullName}}</td>
+    <td>{{employee.empEmail}}</td>
+    <td>{{employee.empMobile}}</td>
+    <td>{{employee.empDOJ}}</td>
+    <td align="center">{{employee.empLeaveBal}}</td>
+    <td>{{employee.empDepart}}</td>
+    <td>{{employee.mgrId}}</td>
+    <td><input type = "button" value="login" (click)="login(employee.empId,employee.mgrId)" /></td>
+  </tr>
+</table>
+</div>
