@@ -1,0 +1,34 @@
+<h2> Approve Deny Details </h2>
+<div class="card">
+<div class="container">
+Employee ID : {{ (empDetails  | async)?.empId }}<br/>
+Employee Name : 
+{{(empDetails | async)?.empFullName}} <br/>
+
+Leave Balance: 
+{{(empDetails | async)?.empLeaveBal}} <br/>
+
+Start Date :
+{{(leaveDetails | async)?.leaStDate}} <br/>
+End Date :
+{{(leaveDetails | async)?.leaEndDate}} <br/>
+Number of days :
+{{(leaveDetails | async)?.leaNoOfDays}} <br/>
+LeaveType :
+{{(leaveDetails | async)?.leaType}} <br/>
+Reason :
+{{(leaveDetails | async)?.leaReas}} <br/>
+<div class="form-group">
+Comments :
+<input type="text" [(ngModel)]="obj.leaMngCmts" name="" class="input" style="margin-left:37px;">
+</div>
+</div>
+<div>
+<div class="center">
+<button  (click)="approve()" class="btn btn-primary">approve</button>
+<button  (click)="deny()" class="btn btn-danger">deny</button>
+<button  (click)="cancel()" class="btn btn-primary">cancel</button>
+<br/>
+result is :
+{{message}}
+</div>

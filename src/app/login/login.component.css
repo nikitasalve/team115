@@ -1,0 +1,66 @@
+
+ .textbox{
+   align:center;
+   width: 50%;
+   overflow: hidden;
+   font-size: 20px;
+   padding: 10px 0;
+   margin: 15px 0;
+   border-bottom: 1px solid #63C7CA; 
+   color:white;
+   }
+ 
+   .loginbutton{
+    text-align:center;
+    width: 40%;
+    overflow: hidden; 
+    font-size: 30px;
+    padding: 5px 0;
+    margin: 15px;
+    border-bottom: 1px solid #202626; 
+    color:black;
+    float:left;
+    font-weight:bold;
+    }
+
+ .textbox input {
+   border: none;
+   outline: none;
+   background: none;
+   color : white;
+   font-size: 18px;
+   width: 80px;
+   float: right;
+   margin: 10px;
+ 
+ }
+
+ input[type=submit] {
+  padding:15px 30px; 
+  background:none; 
+  border:0 none;
+  -webkit-border-radius: 5px;
+  box-shadow:2px 2px 2px 2px black;
+  cursor: pointer;
+}
+
+input[type=submit]:active {
+  transform: translateY(5px);
+}
+
+ .bg{
+      background-image: url("https://d2xf5gjipzd8cd.cloudfront.net/available/307352287/307352287_original.jpg");
+      height : 800px;
+      background-position:center;
+      background-repeat: no-repeat;
+      background-size:cover;
+      width: 100%;
+      padding-top: 160px;
+     padding-right: 30px;
+     padding-bottom: 40%;
+     padding-left: 30%;
+      margin: 8px 0;
+      display: inline-block;
+      box-sizing: border-box;
+  
+    }
