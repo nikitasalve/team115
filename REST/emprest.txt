@@ -1,0 +1,91 @@
+@Test
+	public void testEmployeesList() throws AssertionError, URISyntaxException, ParseException{
+		  final SimpleDateFormat sdf =  new SimpleDateFormat("yyyy-MM-dd");
+		  final String s1="2018-12-20";
+          final Date doj = sdf.parse(s1);
+		  final String s2="2017-10-15";
+          final Date doj1 = sdf.parse(s2);
+		   final String s3="2018-06-10";
+          final Date doj2 = sdf.parse(s3);
+		   final String s4="2019-01-05";
+          final Date doj3 = sdf.parse(s4);
+		   final String s5="2018-08-25";
+          final Date doj4 = sdf.parse(s5);
+		Employee[] res = given().accept(ContentType.JSON).when()
+				.get(CommonUtil.getURI("/api/employees")).getBody().as(Employee[].class);
+				Employee e1=new Employee(1000, "NIKITA SALVE", "NIKITA@GMAIL.COM", "7028365639", doj, "HEXAVARSITY", 0, 9);
+         Employee e2=new Employee(2000, "OMKAR WAGHE", "OMKAR@GMAIL.COM", "9587456125", doj1, "INNOVATION", 1000, 11);
+         Employee e3=new Employee(3000,"MEGHANA P", "MEGHANA@GMAIL.COM", "7845123698", doj2, "HEXAVARSITY", 1000, 6);
+		 Employee e4=new Employee(4000,"BHUVANA", "BHUVI@GMAIL.COM", "9865321245", doj3, "HEXAVARSITY", 2000, 12);
+		 Employee e5=new Employee(5000,"NIVEDHA", "NIVEDHA@GMAIL.COM", "7845562315", doj4, "HEXAVARSITY", 3000, 10);
+		for (Employee e: res) {
+	 		switch (e.getEmpId()) {
+				case 1000:
+					assertEquals(res[0], e1);
+					break;
+				case 2000:
+					assertEquals(res[1], e2);
+					break;				
+				case 3000:
+					assertEquals(res[2], e3);
+					break;				
+				case 4000:
+					assertEquals(res[3], e4);
+					break;				
+				case 5000:
+					assertEquals(res[4], e5);
+					break;			
+				default:
+					fail("Unknown employee with id:" + e);	
+			}
+		}
+	 }
+	// assertEquals(res[0], e1);
+
+	@Test
+	public void testEmployeeById() throws AssertionError, URISyntaxException, ParseException{
+		 SimpleDateFormat sdf =  new SimpleDateFormat("yyyy-MM-dd");
+		 final String s1="2018-12-20";
+              final Date doj = sdf.parse(s1);
+			   final String s2="2017-10-15";
+          final Date doj1 = sdf.parse(s2);
+		   final String s3="2018-06-10";
+          final Date doj2 = sdf.parse(s3);
+		   final String s4="2019-01-05";
+          final Date doj3 = sdf.parse(s4);
+		   final String s5="2018-08-25";
+          final Date doj4 = sdf.parse(s5);
+
+			  Employee e1=new Employee(1000, "NIKITA SALVE", "NIKITA@GMAIL.COM", "7028365639", doj, "HEXAVARSITY", 0, 9);
+			 Employee res0 = given().accept(ContentType.JSON).when()
+				.get(CommonUtil.getURI("/api/employees/1000")).getBody().as(Employee.class);
+                   assertEquals(e1, res0);
+
+			 Employee e2=new Employee(2000, "OMKAR WAGHE", "OMKAR@GMAIL.COM", "9587456125", doj1, "INNOVATION", 1000, 11);	
+			 Employee res1 = given().accept(ContentType.JSON).when()
+				.get(CommonUtil.getURI("/api/employees/2000")).getBody().as(Employee.class);
+				assertEquals(e2, res1);
+
+			 Employee e3=new Employee(3000,"MEGHANA P", "MEGHANA@GMAIL.COM", "7845123698", doj2, "HEXAVARSITY", 1000, 6);
+			 Employee res2 = given().accept(ContentType.JSON).when()
+				.get(CommonUtil.getURI("/api/employees/3000")).getBody().as(Employee.class);
+				assertEquals(e3, res2);	
+
+			Employee e4=new Employee(4000,"BHUVANA", "BHUVI@GMAIL.COM", "9865321245", doj3, "HEXAVARSITY", 2000, 12);
+			Employee res3 = given().accept(ContentType.JSON).when()
+				.get(CommonUtil.getURI("/api/employees/4000")).getBody().as(Employee.class);
+				assertEquals(e4, res3);
+
+				Employee e5=new Employee(5000,"NIVEDHA", "NIVEDHA@GMAIL.COM", "7845562315", doj4, "HEXAVARSITY", 3000, 10);
+				Employee res5 = given().accept(ContentType.JSON).when()
+				.get(CommonUtil.getURI("/api/employees/5000")).getBody().as(Employee.class);
+				assertEquals(e5,res5);
+		
+  }
+  
+  @Test
+	public void testEmployeeById404() throws AssertionError, URISyntaxException {
+		given().accept(ContentType.JSON).when()
+				.get(CommonUtil.getURI("/api/employees/9999")).then().assertThat().statusCode(404);
+	}
+}
