@@ -1,13 +1,52 @@
-<h3 align="center">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<h3 align="center"> 
   Manager Details
 </h3>
+<<<<<<< HEAD:app/manager/manager.component.html
+<div *ngIf= "mgrno == 0; then thenBlock; else elseBlock;"> </div>
+
+=======
 <div *ngIf= "mgrno == 0; then thenBlock; else elseBlock;"> </div> 
+>>>>>>> a30735c74f7b6949c318928c6f90dfc6c2d846ee:project/app/manager/manager.component.html
 <ng-template #thenBlock>
     <div align="center"> <b> No manager </b> </div>
 </ng-template>
 
 <ng-template #elseBlock>
 <div *ngIf="empno != 0">
+<<<<<<< HEAD:app/manager/manager.component.html
+    <div class="backgroundemp">
+        <br/>
+        <br/>
+        <div class="card">
+      <div *ngIf="mgrno==1000">
+          <img src="assets/images/1000.png" alt="Avatar"  class="center">
+          </div>
+          <div *ngIf="mgrno==2000">
+              <img src="assets/images/2000.jpg" alt="Avatar"  class="center">
+          </div>
+          <div *ngIf="mgrno==3000">
+              <img src="assets/images/3000.png" alt="Avatar"  class="center">
+          </div>
+          <div class="container">
+              <h4 align="center"><b>{{(employ | async)?.empFullName}}</b></h4>
+              
+              <b>Employee ID:</b>{{ (employ  | async)?.empId }}<br/>
+              <b>Email:</b> {{(employ | async)?.empEmail}} <br/>
+              <b>Mobile:</b>{{(employ | async)?.empMobile}} <br/> 
+              <b>Date of Joining:</b>  {{(employ | async)?.empDOJ}}<br/>
+              <b>Department:</b> {{(employ | async)?.empDepart}} <br/>
+              
+              <a href="#"><i class="fa fa-dribbble"></i></a>&nbsp;&nbsp;&nbsp;
+              <a href="#"><i class="fa fa-twitter"></i></a>&nbsp;&nbsp;&nbsp;
+              <a href="#"><i class="fa fa-linkedin"></i></a>&nbsp;&nbsp;&nbsp;
+              <a href="#"><i class="fa fa-facebook"></i></a>&nbsp;&nbsp;&nbsp;
+              </div>
+        </div>
+      </div>
+=======
 <table border="2" align="center" >
   <tr>
   <th>Empno:</th>
@@ -30,6 +69,7 @@
       <th>{{(employ | async)?.mgrId}}</th>
   </tr>
 </table>
+>>>>>>> a30735c74f7b6949c318928c6f90dfc6c2d846ee:project/app/manager/manager.component.html
 </div>
 </ng-template>
 

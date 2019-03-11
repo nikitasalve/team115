@@ -1,0 +1,20 @@
+
+<meta charset="utf-8">
+<title>Employee Login</title>
+<div>
+    <div class="bg">
+    <h1>Login </h1>
+      <form name="frmLogin" (ngSubmit) ="login()"> 
+        <br/>
+          <div class="textbox">
+             UserName:
+            <input type="text" placeholder="username" [(ngModel)] = "username"  name="username" value="1" align="center">
+          </div>
+          <div class="textbox">
+              Password:
+              <input type="text" placeholder="password" [(ngModel)] = "password" name="password" value="1">
+            </div>
+            <input class="loginbutton" type = "submit" value = "login" >
+         </form>
+        </div>
+</div>

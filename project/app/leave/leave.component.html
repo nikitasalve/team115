@@ -1,5 +1,10 @@
+<div *ngIf= "lpending.length == 0; then thenGo; else elseGo;"> </div>
+<ng-template #thenGo>
+ <h3 align="center"> No pending Leaves </h3>
+</ng-template>
+<ng-template #elseGo>
 <h3 align="center">
-  Employee Working below me and Applied leave details of respective Employees 
+    My Reportees Pending Leaves
 </h3>
 <table border = "3" align="center">
   <tr *ngFor="let e of emps | async | orderBy : sempno : rev ">
@@ -7,6 +12,7 @@
         <th>EmpId</th><td>{{e.empId}}</td>
         <th>FullName</th><td>{{e.empFullName}}</td><th>LeaveBalance</th><td>{{e.empLeaveBal}}</td>
         <tr border="3">
+          <th>Select</th>
           <th width="70">Leave Id</th>
           <th>Employee Id</th>
           <th>Start Date</th>
@@ -20,6 +26,11 @@
   <table border = "3" >
     <tr *ngFor="let leave of lev | async | orderBy : order : reverse" (click)="setClickRowDup(leave.leaId,leave.leaEmpId)"> 
       <div *ngIf="e.empId==leave.leaEmpId" rowspan=200 px>
+<<<<<<< HEAD:app/leave/leave.component.html
+          <td width="70"><input type="checkbox" (change)="checkbox(leave.leaId, e.empId)"></td>
+          
+=======
+>>>>>>> a30735c74f7b6949c318928c6f90dfc6c2d846ee:project/app/leave/leave.component.html
             <td width="70">{{leave.leaId}}</td>
             <td width="90">{{leave.leaEmpId}}</td>
             <td width="80">{{leave.leaStDate}}</td>
@@ -33,22 +44,28 @@
   </table>
 </table>
 <br/><br/>
-<!-- <div align="center">
-  <input type="button" (click)="doApproveDeny()" value="Approve/Deny"> </div>
-<div align="center" *ngIf="!showButton">
-  <input type="button" value="Approve/Deny" disabled="disabled"></div> -->
-<div align="center">
-  <div>
-    <input type="button" value="New Application" (click)="doapplyLeave()" />
-  </div>
-  <br/> <br/>
+<br/> <br/>
 
 <div align="center">
 <div *ngIf="flag==true">
   <input type="button" value="Approve/Deny" (click)="doApproveDeny()" />
 </div>
 <div *ngIf="flag==false" align="center" >
-    <input type="button" value="Approve/Deny" disabled  />
+    <input type="button" value="Approve/Deny" disabled/>
   </div> 
+<br/><br/>
+<div>
+    <input type="button" value="ApproveAll" (click)="approveAll()" [disabled]="!demo" />
+  </div>
 </div>
 <br/> <br/>
+</ng-template>
+<!-- <div align="center">
+  <input type="button" (click)="doApproveDeny()" value="Approve/Deny"> </div>
+<div align="center" *ngIf="!showButton">
+  <input type="button" value="Approve/Deny" disabled="disabled"></div> -->
+<!-- <div align="center"> -->
+  <!-- <div>
+    <input type="button" value="New Application" (click)="doapplyLeave()" />
+  </div> -->
+
