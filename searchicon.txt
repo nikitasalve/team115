@@ -1,0 +1,16 @@
+input[type=search] { 	
+	padding: 5px;            /* Overridden by padding: 1px; */
+	font-family: Georgia;     /* Overridden by font: -webkit-small-control; */
+	border: 1px solid black;  /* Overridden by border: 2px inset; */
+	background: white;          /* Overridden by background-color: white; */
+  line-height: 2;           /* Irrelevant, I guess */
+  /* margin-left: 10%;
+  margin-right: 10%; */
+  border-radius: 10px;
+  box-shadow: 1px 5px 5px 2px gray;
+  width:400px;
+  cursor: pointer;
+}
+
+
+

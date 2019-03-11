@@ -1,0 +1,114 @@
+<<<<<<< HEAD:app/employ/employ.component.html
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<div class="backgroundemp">
+<br/>
+<br/>
+<div class="card">
+
+<div *ngIf="empno==1000">
+<img src="assets/images/1000.png" alt="Avatar"  class="center">
+</div>
+<div *ngIf="empno==2000">
+    <img src="assets/images/2000.jpg" alt="Avatar"  class="center">
+</div>
+<div *ngIf="empno==3000">
+    <img src="assets/images/3000.png" alt="Avatar"  class="center">
+</div>
+<div *ngIf="empno==4000">
+    <img src="assets/images/4000.png" alt="Avatar"  class="center">
+</div>
+<div *ngIf="empno==5000">
+    <img src="assets/images/5000.png" alt="Avatar"  class="center">
+</div>
+<div class="container">
+<h4 align="center"><b>{{(employ | async)?.empFullName}}</b></h4>
+
+<b>Employee ID:</b>{{ (employ  | async)?.empId }}<br/>
+<b>Email:</b> {{(employ | async)?.empEmail}} <br/>
+<b>Mobile:</b>{{(employ | async)?.empMobile}} <br/> 
+<b>Date of Joining:</b>  {{(employ | async)?.empDOJ}}<br/>
+<b>Leave Balance:</b>{{(employ | async)?.empLeaveBal}} <br/>
+<b>Department:</b> {{(employ | async)?.empDepart}} <br/>
+<b>Manager ID:</b>{{(employ | async)?.mgrId}} <br/><br/>
+
+<a href="#"><i class="fa fa-dribbble"></i></a>&nbsp;&nbsp;&nbsp;
+<a href="#"><i class="fa fa-twitter"></i></a>&nbsp;&nbsp;&nbsp;
+<a href="#"><i class="fa fa-linkedin"></i></a>&nbsp;&nbsp;&nbsp;
+<a href="#"><i class="fa fa-facebook"></i></a>&nbsp;&nbsp;&nbsp;
+</div>
+<!-- <h4>Employee ID : {{ (employ  | async)?.empId }}</h4> -->
+</div>
+</div>
+
+
+   
+  
+ 
+  
+   
+    
+
+   
+
+    
+
+   
+ 
+    
+
+   
+
+    
+=======
+
+<br/>
+<br/>
+<div border>
+<img src="https://i.pinimg.com/236x/40/18/03/401803755170c9750ab19646a064f534.jpg" alt="Avatar"  class="center">
+<h4 align="center">{{(employ | async)?.empFullName}}</h4>
+</div>
+<!-- <h4>Employee ID : {{ (employ  | async)?.empId }}</h4> -->
+<table border="2" align="center">
+<tr>
+<th>Employee ID:</th>
+<th>Email:</th>
+<th>Mobile:</th>
+<th>Date of Joining:</th>
+<th>LeaveBal:</th>
+<th>Dept:</th>
+<th>MgrId:</th>
+</tr>
+<tr>
+  <th>
+      {{ (employ  | async)?.empId }}
+  </th>
+<th>
+    {{(employ | async)?.empEmail}}
+    </th>
+    
+    <th>
+    {{(employ | async)?.empMobile}}
+    </th>
+    
+    <th>
+    {{(employ | async)?.empDOJ}}
+    </th>
+    
+    <th>
+    {{(employ | async)?.empLeaveBal}}
+    </th>
+    
+    <th>
+    {{(employ | async)?.empDepart}}
+    </th>
+    
+    <th>
+    {{(employ | async)?.mgrId}} 
+    </th>
+</tr>
+</table>
+>>>>>>> a30735c74f7b6949c318928c6f90dfc6c2d846ee:project/app/employ/employ.component.html
+ 
+
