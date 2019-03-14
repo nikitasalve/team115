@@ -1,0 +1,16 @@
+table {
+    -webkit-transition: width 2s; /* Safari */
+    transition: width 2s;
+    box-shadow: 1px 8px 10px 2px rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width:90%;
+}
+
+.backgroundemp{
+    background-color: lightblue;
+     margin: 0;
+     padding: 0;
+     /* background-image: url("https://d2xf5gjipzd8cd.cloudfront.net/available/307352287/307352287_original.jpg"); */
+     height: 100vh;
+   
+   }

@@ -1,0 +1,88 @@
+<div *ngIf= "lpending.length == 0; then thenGo; else elseGo;"> </div>
+<ng-template #thenGo>
+ <h3 align="center" style="color:white"> No pending Leaves </h3>
+</ng-template>
+
+<ng-template #elseGo>
+<h3 align="center" style="color:white">
+    My Reportees Pending Leaves
+</h3>
+<table class="table table-dark" align="center">
+  <tr *ngFor="let e of emps | async | orderBy : sempno : rev ">
+    <div *ngIf="e.mgrId == empid">
+        <th>Employee ID</th><td>{{e.empId}}</td>
+        <th>Full Name</th><td>{{e.empFullName}}</td><th>Leave Balance</th><td>{{e.empLeaveBal}}</td>
+        <tr border="3">
+          <th>Select</th>
+          <th>Leave ID</th>
+          <th>Employee ID</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>No of Leaves</th>
+          <th>Leave Reason</th>
+          <th>Applied On</th>
+          <th>Manager Comments</th>
+        </tr>
+    </div>
+  <table border = "3" >
+      <tbody class="leave">
+    <div *ngFor="let leave of lev | async | orderBy : order : reverse" (click)="setClickRowDup(leave.leaId,leave.leaEmpId)"> 
+      <div *ngIf="e.empId==leave.leaEmpId" rowspan=200 px>
+        <div *ngIf="tat(leave.leaStDate)==1">
+          <tr bgcolor="red">
+          <td width="110"><input type="checkbox" (change)="checkbox(leave.leaId, e.empId)"></td>
+            <td width="125">{{leave.leaId}}</td>
+            <td width="125">{{leave.leaEmpId}}</td>
+            <td width="125">{{leave.leaStDate}}</td>
+            <td width="125">{{leave.leaEndDate}}</td>
+            <td width="125">{{leave.leaNoOfDays}}</td>
+            <td width="125">{{leave.leaReas}}</td>
+            <td width="125">{{leave.leaAppOn}}</td>
+            <td width="125">{{leave.leaMngCmts}}</td>
+          </tr>
+      </div>
+      <div *ngIf="tat(leave.leaStDate) > 1">
+          <tr>
+              <td width="110"><input type="checkbox" (change)="checkbox(leave.leaId, e.empId)"></td>
+              <td width="125">{{leave.leaId}}</td>
+              <td width="125">{{leave.leaEmpId}}</td>
+              <td width="125">{{leave.leaStDate}}</td>
+              <td width="125">{{leave.leaEndDate}}</td>
+              <td width="125">{{leave.leaNoOfDays}}</td>
+              <td width="125">{{leave.leaReas}}</td>
+              <td width="125">{{leave.leaAppOn}}</td>
+              <td width="125">{{leave.leaMngCmts}}</td>
+          </tr>
+      </div>
+    </div>
+    </div>
+  </table>
+  </tr>
+</tbody>
+</table>
+<br/><br/>
+<br/> <br/>
+
+<div align="center">
+<div *ngIf="flag==true">
+  <input type="button" id="appDeny" class="btn btn-primary" value="Approve/Deny" (click)="doApproveDeny()" />
+</div>
+<div *ngIf="flag==false" align="center" >
+    <input type="button" class="btn btn-primary" value="Approve/Deny" disabled/>
+  </div> 
+<br/><br/>
+<div>
+    <input type="button" class="btn btn-primary" value="ApproveAll" (click)="approveAll()" [disabled]="!demo" />
+  </div>
+</div>
+<br/> <br/>
+</ng-template>
+<!-- <div align="center">
+  <input type="button" (click)="doApproveDeny()" value="Approve/Deny"> </div>
+<div align="center" *ngIf="!showButton">
+  <input type="button" value="Approve/Deny" disabled="disabled"></div> -->
+<!-- <div align="center"> -->
+  <!-- <div>
+    <input type="button" value="New Application" (click)="doapplyLeave()" />
+  </div> -->
+

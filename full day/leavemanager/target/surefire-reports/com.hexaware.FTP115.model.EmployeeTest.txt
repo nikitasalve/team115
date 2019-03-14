@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.hexaware.FTP115.model.EmployeeTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.026 s - in com.hexaware.FTP115.model.EmployeeTest

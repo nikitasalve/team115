@@ -1,0 +1,72 @@
+th {
+  background-color: #0B4859;
+  color: white;
+} 
+
+ /* th,td{
+  border: 1px solid black;
+}  */
+th:hover,td:hover{
+  background-color:#2E484F;
+}
+/* tr:hover {
+  background-color:#C6BDBD;
+  border:1px solid black;
+} */
+
+ /* table {
+border: 1px;
+border-radius: 5px;
+padding: 10vw;
+
+} */
+
+table, th, td {
+border: 2px solid #050023;
+border-collapse: collapse;
+padding:12px;
+margin:2%;
+color: white;
+
+}
+
+input[type=button] {
+  padding:15px 15px; 
+  background:none; 
+  border:2px 2px white;
+  -webkit-border-radius: 5px;
+  box-shadow:2px 2px 2px 2px gray;
+  cursor: pointer;
+  color: white;
+}
+input[type=button]:hover {
+background-color: #041026;
+}
+
+input[type=button]:active {
+  transform: translateY(5px);
+}
+/* .backdis{
+background-color: lightblue;
+} */
+input[type=search] { 	
+	padding: 5px;            /* Overridden by padding: 1px; */
+	font-family: Georgia;     /* Overridden by font: -webkit-small-control; */
+	border: 1px solid black;  /* Overridden by border: 2px inset; */
+	background: #F1EFEF;          /* Overridden by background-color: white; */
+  line-height: 2;           /* Irrelevant, I guess */
+  /* margin-left: 10%;
+  margin-right: 10%; */
+  border-radius: 10px;
+  box-shadow: 1px 5px 5px 0px #14B5E3;
+  width:400px;
+  cursor: pointer;
+}
+
+h1 {
+  color: white; 
+  font: bold 52px Helvetica, Arial, Sans-Serif;
+  text-shadow: 1px 1px #5B0F91, 
+               2px 2px #4704A5, 
+               3px 3px #29035D;
+}

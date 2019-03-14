@@ -1,0 +1,51 @@
+<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/@coreui/icons/css/coreui-icons.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<br/><br/><br/>
+<h1 style= "color:#DE9514;text-align:center;font-family: Times New Roman, Times, serif;"> Approve Deny Details </h1>
+<!-- <div class="card">
+<div class="container"> -->
+<br/><br/>
+<div style="color:white;font-size:25px;" align="center">
+<b >Employee ID :</b> {{ (empDetails  | async)?.empId }}<br/>
+<b>Employee Name :</b> 
+{{(empDetails | async)?.empFullName}} <br/>
+
+<b >Leave Balance: </b>
+{{(empDetails | async)?.empLeaveBal}} <br/>
+
+<b>Start Date :</b>
+{{(leaveDetails | async)?.leaStDate}} <br/>
+<b >End Date :</b>
+{{(leaveDetails | async)?.leaEndDate}} <br/>
+<b >Number of days :</b>
+{{(leaveDetails | async)?.leaNoOfDays}} <br/>
+<b >LeaveType :</b>
+{{(leaveDetails | async)?.leaType}} <br/>
+<b >Reason :</b>
+{{(leaveDetails | async)?.leaReas}} <br/>
+<div class="form-group">
+<b>Comments :</b>
+<input type="text" [(ngModel)]="obj.leaMngCmts" name="" class="input" style="margin-left:20px;margin-top:20px;height:30px">
+</div>
+</div>
+<!-- </div>
+</div> --> <br/>
+<div align="center">
+<button type="button" class="btn btn-success" (click)="approve()">approve</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button type="button" class="btn btn-danger"  (click)="deny()">deny</button>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button type="button" class="btn btn-primary" (click)="cancel()">cancel</button>
+<br/>
+</div>
+<br/>
+<h2 align="center" style="color:white">result is :
+{{message}} </h2>
+
